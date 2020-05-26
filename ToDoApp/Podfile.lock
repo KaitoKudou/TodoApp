@@ -1,5 +1,6 @@
 PODS:
   - CalculateCalendarLogic (0.3.0)
+  - DZNEmptyDataSet (1.8.1)
   - FSCalendar (2.8.1)
   - Realm (4.4.1):
     - Realm/Headers (= 4.4.1)
@@ -15,6 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - CalculateCalendarLogic
+  - DZNEmptyDataSet
   - FSCalendar
   - RealmSwift
   - RxCocoa
@@ -23,6 +25,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CalculateCalendarLogic
+    - DZNEmptyDataSet
     - FSCalendar
     - Realm
     - RealmSwift
@@ -32,6 +35,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   CalculateCalendarLogic: cd5b2c706a8628bb924c5ee9d05c4f61bdbaf390
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
@@ -39,6 +43,6 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: b3c78d2bd3d7276ca47282ac25088e5fdef7b79c
+PODFILE CHECKSUM: a972067c308a910644d45b1fe91e09a3650f778b
 
 COCOAPODS: 1.9.1

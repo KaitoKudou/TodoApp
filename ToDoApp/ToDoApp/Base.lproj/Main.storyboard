@@ -50,14 +50,16 @@
                         <viewLayoutGuide key="safeArea" id="q6p-ss-imZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" selectedImage="calendar" id="sCI-kg-Mjs"/>
+                    <navigationItem key="navigationItem" title="Calendar" id="bcm-1N-jns"/>
                     <connections>
                         <outlet property="calendar" destination="IMh-ZJ-IFb" id="xT3-By-tcb"/>
+                        <outlet property="dayLable" destination="1xp-os-jqv" id="k0K-Tz-dcp"/>
                         <outlet property="todayScheduleTableView" destination="lZK-pd-wM9" id="AJD-vu-pNV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kon-f5-5Aw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="1913"/>
+            <point key="canvasLocation" x="470" y="1862"/>
         </scene>
         <!--AddToDoLists-->
         <scene sceneID="kLi-h7-Myg">
@@ -72,6 +74,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="textEditingChanged:" destination="h7w-Kj-f27" eventType="editingChanged" id="2CC-tC-zok"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-3B-Gjk">
                                 <rect key="frame" x="154" y="603" width="107" height="76"/>
@@ -97,11 +102,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-I5-v0l">
+                            <navigationBar contentMode="scaleToFill" id="cDX-I5-v0l" customClass="CustomNavigationBar" customModule="ToDoApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="追加画面" id="aU7-kJ-FMy"/>
+                                    <navigationItem title="追加画面" id="ywg-mg-BgX"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -109,6 +114,7 @@
                         <viewLayoutGuide key="safeArea" id="Bb6-eo-cyv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="square.and.pencil" catalog="system" selectedImage="square.and.pencil" id="tBL-Ou-kaW"/>
+                    <navigationItem key="navigationItem" title="Addition" id="9cj-Oo-CB1"/>
                     <connections>
                         <outlet property="checkButton" destination="h2D-3B-Gjk" id="hJc-1m-SCi"/>
                         <outlet property="dateLabel" destination="bvO-8A-Kcg" id="pEK-Rg-EFS"/>
@@ -122,6 +128,40 @@
                         <action selector="tapLabel:" destination="h7w-Kj-f27" id="jGc-fP-9Ll"/>
                     </connections>
                 </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="745" y="1040"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="YOD-Hv-qQU">
+            <objects>
+                <navigationController id="0yy-tW-BXe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="4xC-gn-oVC"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QJp-vO-TK0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CdG-3z-XLb" kind="relationship" relationship="rootViewController" id="XD1-hg-QBp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fwq-rr-6wl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1017" y="1862"/>
+        </scene>
+        <!--Add-->
+        <scene sceneID="h9s-i4-h9P">
+            <objects>
+                <navigationController id="33y-A2-eN3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Add" image="square.and.pencil" catalog="system" id="xGx-ry-ngI"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Zj-ta-Eps">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="h7w-Kj-f27" kind="relationship" relationship="rootViewController" id="s4f-bL-SiQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NgS-j7-7j9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-68" y="1040"/>
         </scene>
@@ -168,7 +208,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyK-YZ-ZCW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="212"/>
+            <point key="canvasLocation" x="744.92753623188412" y="211.60714285714286"/>
         </scene>
         <!--ToDoList-->
         <scene sceneID="q1d-eN-dez">
@@ -185,7 +225,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lB-79-57r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="212"/>
+            <point key="canvasLocation" x="-161" y="212"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bYw-Y8-ZzX">
@@ -198,8 +238,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="oQU-7d-6kO" kind="relationship" relationship="viewControllers" id="Szj-OB-EUD"/>
-                        <segue destination="CdG-3z-XLb" kind="relationship" relationship="viewControllers" id="B7r-VN-aLl"/>
-                        <segue destination="h7w-Kj-f27" kind="relationship" relationship="viewControllers" id="ydr-Ub-4c1"/>
+                        <segue destination="0yy-tW-BXe" kind="relationship" relationship="viewControllers" id="5Fc-0S-x2D"/>
+                        <segue destination="33y-A2-eN3" kind="relationship" relationship="viewControllers" id="prJ-O7-ZDO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTy-EW-4d1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

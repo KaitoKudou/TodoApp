@@ -38,16 +38,7 @@ class AddToDoListViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if textField.text == ""{
-            checkButton.isEnabled = false
-        }
-        else{
-            checkButton.isEnabled = true
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        validate()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -55,14 +46,21 @@ class AddToDoListViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.text == ""{
-            checkButton.isEnabled = false
+    func validate() { // テキストフィールドが空かどうかチェック
+        guard let textData = textField.text else {
+            self.checkButton.isEnabled = false
+            return
+        }
+        if textData.count == 0{
+            self.checkButton.isEnabled = false
         }
         else{
-            checkButton.isEnabled = true
+            self.checkButton.isEnabled = true
         }
-        return true
+    }
+    
+    @IBAction func textEditingChanged(_ sender: Any) {
+        validate()
     }
     
     @IBAction func AddToDoList(_ sender: Any) {

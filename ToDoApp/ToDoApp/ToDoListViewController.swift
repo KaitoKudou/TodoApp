@@ -9,8 +9,9 @@
 import UIKit
 import RealmSwift
 import RxSwift
+import DZNEmptyDataSet
 
-class ToDoListViewController: UITableViewController{
+class ToDoListViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate{
     
     var addToDoListViewModel = AddToDoListViewModel()
     var toDoLists : Results<ToDoModel>! //Realmから受け取るデータを入れる
@@ -25,6 +26,8 @@ class ToDoListViewController: UITableViewController{
         //tableView.register(UINib(nibName: "CustomToDoCell", bundle: nil), forCellReuseIdentifier: "CustomToDoCell")
         //tableView.allowsMultipleSelectionDuringEditing = true
         navigationItem.rightBarButtonItem = editButtonItem
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,17 +51,44 @@ class ToDoListViewController: UITableViewController{
         tableView.isEditing = editing
     }
     
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "ToDoはありません")
+    }
+    
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return  UIColor(red: 232/255, green: 236/255, blue: 241/255, alpha: 1.0)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.toDoLists.isEmpty{
+            tableView.separatorStyle = .none // 罫線を削除
+            //debugPrint("toDoLists.count:\(toDoLists.count)")
+        }
+        else{
+            tableView.separatorStyle = .singleLine // 罫線を引く
+            //debugPrint("toDoLists.count:\(toDoLists.count)")
+        }
         return self.toDoLists.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomToDoCell") as? CustomToDoCell{
             //cell.setToDoCell(todoList: self.toDoLists[indexPath.row].title, date: self.toDoLists[indexPath.row].date)
+        /*let noToDoMessageCell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath)
+        if self.toDoLists.count == 0{
+            noToDoMessageCell.textLabel?.text = self.noToDoMessage[indexPath.row]
+            noToDoMessageCell.detailTextLabel?.text = ""
+            return noToDoMessageCell
+        }
+        else{
+        }*/
+        //print(self.toDoLists.count)
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoCell", for: indexPath)
         cell.textLabel?.text = self.toDoLists?[indexPath.row].title
         cell.detailTextLabel?.text = self.toDoLists[indexPath.row].date
+        self.tableView.tableFooterView = UIView() // 空のセルの罫線を消す。
         return cell
+        
         //}
         //return UITableViewCell()
     }
@@ -84,10 +114,10 @@ class ToDoListViewController: UITableViewController{
             
             if sourceIndexPath.row < destinationIndexPath.row{
                 // 上から下にcellを移動したとき、間にあるcellを上にシフトさせる
-                for index in sourceIndexPath.row ..< destinationIndexPath.row {
+                for index in sourceIndexPath.row ... destinationIndexPath.row {
                     let toDoList = toDoLists[index]
                     toDoList.order -= 1
-                    print("toDoList.order:\(toDoList.order)")
+                    //print("toDoList.order:\(toDoList.order)")
                 }
             }
             else{
