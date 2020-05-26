@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oeW-Ut-u71">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oeW-Ut-u71">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,25 +15,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IMh-ZJ-IFb" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="500"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMh-ZJ-IFb" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="88" width="414" height="456"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value="yyyy年MM月"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日の予定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xp-os-jqv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の予定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xp-os-jqv">
                                 <rect key="frame" x="0.0" y="552" width="414" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="iMQ-TK-vgv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lZK-pd-wM9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lZK-pd-wM9">
                                 <rect key="frame" x="0.0" y="595" width="414" height="218"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="218" id="Tos-wD-6lS"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todayScheduleCell" id="4QX-2n-gZZ">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -47,6 +50,18 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IMh-ZJ-IFb" firstAttribute="leading" secondItem="q6p-ss-imZ" secondAttribute="leading" id="DWs-v6-oYC"/>
+                            <constraint firstItem="IMh-ZJ-IFb" firstAttribute="trailing" secondItem="q6p-ss-imZ" secondAttribute="trailing" id="EJm-e8-690"/>
+                            <constraint firstItem="1xp-os-jqv" firstAttribute="trailing" secondItem="q6p-ss-imZ" secondAttribute="trailing" id="H3P-Bv-fNa"/>
+                            <constraint firstItem="IMh-ZJ-IFb" firstAttribute="top" secondItem="q6p-ss-imZ" secondAttribute="top" id="Hbp-1E-fWM"/>
+                            <constraint firstItem="lZK-pd-wM9" firstAttribute="top" secondItem="1xp-os-jqv" secondAttribute="bottom" constant="8" id="Mkg-JM-66Q"/>
+                            <constraint firstItem="lZK-pd-wM9" firstAttribute="bottom" secondItem="q6p-ss-imZ" secondAttribute="bottom" id="kXy-z0-z6M"/>
+                            <constraint firstItem="lZK-pd-wM9" firstAttribute="trailing" secondItem="q6p-ss-imZ" secondAttribute="trailing" id="sOU-1u-mUs"/>
+                            <constraint firstItem="1xp-os-jqv" firstAttribute="leading" secondItem="q6p-ss-imZ" secondAttribute="leading" id="tkn-EF-zzP"/>
+                            <constraint firstItem="1xp-os-jqv" firstAttribute="top" secondItem="IMh-ZJ-IFb" secondAttribute="bottom" constant="8" id="vZg-ZO-Eo6"/>
+                            <constraint firstItem="lZK-pd-wM9" firstAttribute="leading" secondItem="q6p-ss-imZ" secondAttribute="leading" id="wS5-aC-xYy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="q6p-ss-imZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" selectedImage="calendar" id="sCI-kg-Mjs"/>
@@ -59,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kon-f5-5Aw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="1862"/>
+            <point key="canvasLocation" x="469.56521739130437" y="1861.6071428571427"/>
         </scene>
         <!--AddToDoLists-->
         <scene sceneID="kLi-h7-Myg">
@@ -69,48 +84,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-tC-JfL">
-                                <rect key="frame" x="52" y="165" width="311" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-tC-JfL">
+                                <rect key="frame" x="50" y="128" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="textEditingChanged:" destination="h7w-Kj-f27" eventType="editingChanged" id="2CC-tC-zok"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-3B-Gjk">
-                                <rect key="frame" x="154" y="603" width="107" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
-                                <state key="normal" title="追加"/>
-                                <connections>
-                                    <action selector="AddToDoList:" destination="h7w-Kj-f27" eventType="touchUpInside" id="dBu-k4-9bc"/>
-                                </connections>
-                            </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="1lN-cX-CPq">
-                                <rect key="frame" x="0.0" y="353" width="414" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="1lN-cX-CPq">
+                                <rect key="frame" x="0.0" y="258" width="414" height="216"/>
                                 <connections>
                                     <action selector="dateChanged:" destination="h7w-Kj-f27" eventType="valueChanged" id="pc9-MM-geB"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvO-8A-Kcg">
-                                <rect key="frame" x="52" y="198" width="311" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvO-8A-Kcg">
+                                <rect key="frame" x="50" y="182" width="314" height="20.5"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" id="cDX-I5-v0l" customClass="CustomNavigationBar" customModule="ToDoApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="追加画面" id="ywg-mg-BgX"/>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-3B-Gjk">
+                                <rect key="frame" x="156.5" y="582" width="101" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="追加"/>
+                                <connections>
+                                    <action selector="AddToDoList:" destination="h7w-Kj-f27" eventType="touchUpInside" id="dBu-k4-9bc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="h2D-3B-Gjk" firstAttribute="centerX" secondItem="mOh-6F-4B2" secondAttribute="centerX" id="0Vd-hl-fAn"/>
+                            <constraint firstItem="Bb6-eo-cyv" firstAttribute="trailing" secondItem="bvO-8A-Kcg" secondAttribute="trailing" constant="50" id="Bxx-h2-ZcI"/>
+                            <constraint firstItem="h2D-3B-Gjk" firstAttribute="centerY" secondItem="mOh-6F-4B2" secondAttribute="centerY" constant="170" id="E7L-xv-lDA"/>
+                            <constraint firstItem="1lN-cX-CPq" firstAttribute="leading" secondItem="Bb6-eo-cyv" secondAttribute="leading" id="II5-m5-7Zh"/>
+                            <constraint firstItem="bvO-8A-Kcg" firstAttribute="leading" secondItem="Bb6-eo-cyv" secondAttribute="leading" constant="50" id="JKW-QP-yUI"/>
+                            <constraint firstItem="bvO-8A-Kcg" firstAttribute="top" secondItem="Rdt-tC-JfL" secondAttribute="bottom" constant="20" id="d5M-Wc-6C4"/>
+                            <constraint firstItem="1lN-cX-CPq" firstAttribute="trailing" secondItem="Bb6-eo-cyv" secondAttribute="trailing" id="h9C-R5-OpH"/>
+                            <constraint firstItem="Rdt-tC-JfL" firstAttribute="top" secondItem="Bb6-eo-cyv" secondAttribute="top" constant="40" id="iT3-Sl-eZ9"/>
+                            <constraint firstItem="Bb6-eo-cyv" firstAttribute="trailing" secondItem="Rdt-tC-JfL" secondAttribute="trailing" constant="50" id="mn2-Wv-JEu"/>
+                            <constraint firstItem="1lN-cX-CPq" firstAttribute="top" secondItem="bvO-8A-Kcg" secondAttribute="bottom" constant="55" id="n1A-rD-ufr"/>
+                            <constraint firstItem="Rdt-tC-JfL" firstAttribute="leading" secondItem="Bb6-eo-cyv" secondAttribute="leading" constant="50" id="ztr-Fc-4zN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bb6-eo-cyv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="square.and.pencil" catalog="system" selectedImage="square.and.pencil" id="tBL-Ou-kaW"/>
@@ -129,7 +146,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="745" y="1040"/>
+            <point key="canvasLocation" x="744.92753623188412" y="1039.9553571428571"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="YOD-Hv-qQU">
