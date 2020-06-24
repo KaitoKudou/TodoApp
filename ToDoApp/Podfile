@@ -6,11 +6,16 @@ target 'ToDoApp' do
   use_frameworks!
 
   # Pods for ToDoApp
+  # add pods for desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
+
   pod 'RealmSwift'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'FSCalendar'
   pod 'CalculateCalendarLogic'
   pod 'DZNEmptyDataSet'
+  pod 'Firebase'
+  pod 'Firebase/Database’
 
 end
