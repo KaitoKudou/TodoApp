@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import RxSwift
+import FirebaseDatabase
 
 class AddToDoListViewController: UIViewController,UITextFieldDelegate {
     
@@ -19,6 +20,7 @@ class AddToDoListViewController: UIViewController,UITextFieldDelegate {
     let currentDateFormatter = DateFormatter()
     let addToDoListViewModel = AddToDoListViewModel()
     var toDoLists : Results<ToDoModel>! //Realmから受け取るデータを入れる
+    var databaseRef:DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,7 @@ class AddToDoListViewController: UIViewController,UITextFieldDelegate {
         toDoLists = realm.objects(ToDoModel.self)
         datePicker.locale = Locale(identifier: "ja_JP")
         dateLabel.text = currentDateFormatter.string(from: Date())
-        
+        databaseRef = Database.database().reference() // インスタンスを取得
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +79,16 @@ class AddToDoListViewController: UIViewController,UITextFieldDelegate {
         textField.text = ""
         textField.placeholder = "ToDoリストに追加したいことを入力してください"
         checkButton.isEnabled = false
+        
+        // firebaseにアクセスしてデータの書き込み
+        //let todoDic = ["title":toDoModel.title, "date":toDoModel.date]
+        //databaseRef.childByAutoId().setValue(todoDic)
+        /*databaseRef.child("todo").updateChildValues(todoDic, withCompletionBlock: { (error, reference) in
+            if error != nil{
+                print("書き込み時にエラーが発生しました。")
+                return
+            }
+        })*/
     }
     
     @IBAction func dateChanged(_ sender: Any) {
