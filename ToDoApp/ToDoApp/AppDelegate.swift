@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(realm, "Realm")
         print(config,"Realm Version")
         
-        FirebaseApp.configure()
         return true
     }
 

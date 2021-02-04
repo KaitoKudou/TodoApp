@@ -21,7 +21,6 @@
 		44C08575243A071A008CD46B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C08573243A071A008CD46B /* Main.storyboard */; };
 		44C08577243A0727008CD46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C08576243A0727008CD46B /* Assets.xcassets */; };
 		44C0857A243A0727008CD46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C08578243A0727008CD46B /* LaunchScreen.storyboard */; };
-		44D4A8F2247D04F10077298D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44D4A8F1247D04F10077298D /* GoogleService-Info.plist */; };
 		E5547C0D10E68C2DC6AC1AAB /* Pods_ToDoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798D7F569EEE496DBDAFF081 /* Pods_ToDoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +41,6 @@
 		44C08576243A0727008CD46B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44C08579243A0727008CD46B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44C0857B243A0727008CD46B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44D4A8F1247D04F10077298D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		798D7F569EEE496DBDAFF081 /* Pods_ToDoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7CC5BD72217D5689372EE6 /* Pods-ToDoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp.debug.xcconfig"; path = "Target Support Files/Pods-ToDoApp/Pods-ToDoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E22182EAED1CF2E679E46CA6 /* Pods-ToDoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoApp.release.xcconfig"; path = "Target Support Files/Pods-ToDoApp/Pods-ToDoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				44C08576243A0727008CD46B /* Assets.xcassets */,
 				44C08578243A0727008CD46B /* LaunchScreen.storyboard */,
 				44C0857B243A0727008CD46B /* Info.plist */,
-				44D4A8F1247D04F10077298D /* GoogleService-Info.plist */,
 			);
 			path = ToDoApp;
 			sourceTree = "<group>";
@@ -180,7 +177,6 @@
 			files = (
 				449F35A1245099BF004C6BE9 /* CustomToDoCell.xib in Resources */,
 				44C0857A243A0727008CD46B /* LaunchScreen.storyboard in Resources */,
-				44D4A8F2247D04F10077298D /* GoogleService-Info.plist in Resources */,
 				44C08577243A0727008CD46B /* Assets.xcassets in Resources */,
 				44C08575243A071A008CD46B /* Main.storyboard in Resources */,
 			);
@@ -320,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -374,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

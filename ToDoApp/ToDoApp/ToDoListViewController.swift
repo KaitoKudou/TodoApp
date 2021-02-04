@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 import RxSwift
 import DZNEmptyDataSet
-import FirebaseDatabase
 
 class ToDoListViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate{
     
@@ -19,7 +18,6 @@ class ToDoListViewController: UITableViewController, DZNEmptyDataSetSource, DZNE
     var observable : Observable<String>!
     let disposeBag = DisposeBag()
     let realm = try! Realm()
-    var databaseRef:DatabaseReference!
     var titleToDo = [String]()
     var dateToDo = [String]()
     
@@ -32,7 +30,6 @@ class ToDoListViewController: UITableViewController, DZNEmptyDataSetSource, DZNE
         navigationItem.rightBarButtonItem = editButtonItem
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
-        databaseRef = Database.database().reference()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,19 +161,6 @@ class ToDoListViewController: UITableViewController, DZNEmptyDataSetSource, DZNE
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             print(self.toDoLists as Any)
             
-            // firebaseにアクセスしてデータを削除
-            /*self.databaseRef.queryOrdered(byChild: "title").queryEqual(toValue: toDoLists[indexPath.row].title).observeSingleEvent(of: .value, with: { snapShot in
-                self.databaseRef.child("title").removeValue()
-            })
-            
-            self.databaseRef.queryOrdered(byChild: "date").queryEqual(toValue: toDoLists[indexPath.row].date).observeSingleEvent(of: .value, with: { snapShot in
-                self.databaseRef.child("date").removeValue()
-            })*/
-            
-            //self.databaseRef.child("todo").child("title").removeValue()
-            //self.databaseRef.child("todo").child("date").removeValue()
-            //self.titleToDo.remove(at: indexPath.row)
-            //self.dateToDo.remove(at: indexPath.row)
         }
     }
     
